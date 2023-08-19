@@ -1,0 +1,343 @@
+<html>
+
+
+<head>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   
+
+
+<link rel="stylesheet" href="product.css">
+
+</head>
+<body>
+<style>
+
+.img1{
+	width:300px;
+}
+
+#orderForm {
+  display: none;
+  position:fixed;
+  z-index:999;
+  top:10px;
+  left:40%;
+  padding: 20px;
+  width:350px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+#orderForm h3 {
+  margin: 0 0 10px;
+}
+
+#orderForm input[type="text"],
+#orderForm button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#orderForm input[type="text"] {
+  border: 1px solid #ccc;
+}
+
+#orderForm button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+
+#orderForm button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.fa-times{
+	position:absolute;
+	top:23px;
+	right:21px;
+	color:red;
+	cursor:pointer;
+}
+
+</style>
+<div class="container">
+  <div class="navbar">
+    <div class="logo">
+      <a href="index.html"><img class="img1" src="img1.png"></a>
+    </div>
+    <nav>
+      <ul id="MenuItems">
+        <li><a href="https://jaxcreativemedia.com/">Home</a></li>
+        <li><a href="https://jaxcreativemedia.com/about">About</a></li>
+        <li><a href="https://jaxcreativemedia.com/services">Services</a></li>
+        <li><a href="https://jaxcreativemedia.com/portfolio">Portfolio</a></li>
+        <li><a href="https://jaxcreativemedia.com/podcast">Podcast</a></li>
+        <li><a href="https://jaxcreativemedia.com/contact-us">Contact Us</a></li>
+        <li><a href="https://jaxcreativemedia.com/blog">Blog</a></li>
+        <li><a href="index.html" style="padding-bottom:5px; border-bottom:4px solid red;" >Store</a></li>
+      </ul>
+    </nav>
+    <img src="https://i.ibb.co/6XbqwjD/menu.png" alt="" class="menu-icon" onclick="menutoggle()" />
+  </div>
+</div>
+
+<style>
+button{
+  background: #ff523b;
+  color: #ffffff;
+  padding: 8px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 0.5s;
+  border:none;
+  outline:none;
+}
+
+button:hover {
+  background: #563434;
+}
+.image-container{
+	padding:30px 20px;
+	background:#f1f1f1;
+	margin-bottom:10px;
+}
+</style>
+
+<div class="small-container">
+  <div class="row row-2">
+    <h2>All Products</h2>
+    <select>
+      <option value="">Default Sorting</option>
+      <option value="">Sort by price</option>
+      </select>
+  </div>
+  <div class="row">
+    <div class="col-4">
+     <div class="image-container"> <img src="images/img1.png" alt="" />  </div>
+      
+	  <h4>T-shirt</h4>
+      <p>Price: $25.00</p>
+	  
+      <p>Shipping: $6.99</p>
+	  <button class="orderButton">Buy Product</button>
+    </div>
+
+    <div class="col-4">
+     <div class="image-container"> <img src="images/img2.png" alt="" />  </div>
+      <h4>T-shirt</h4>
+      <p>Price: $25.00</p>
+      <p>Shipping: $6.99</p>
+	  
+	  <button class="orderButton" >Buy Product</button>
+    </div>
+
+    <div class="col-4">
+     <div class="image-container"> <img src="images/img3.png" alt="" />   </div>
+      <h4>T-shirt</h4>
+      <p>Price: $25.00</p>
+      <p>Shipping: $6.99</p>
+	  <button class="orderButton">Buy Product</button>
+    </div>
+
+    <div class="col-4">
+     <div class="image-container"> <img src="images/img4.png" alt="" />   </div>
+      <h4>T-shirt</h4>
+      <p>Price: $25.00</p>
+      <p>Shipping: $6.99</p>
+	  <button class="orderButton">Buy Product</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+     <div class="image-container"> <img src="images/img5.png" alt="" />   </div>
+      <h4>T-shirt</h4>
+      <p>Price: $25.00</p>
+      <p>Shipping: $6.99</p>
+	  <button class="orderButton">Buy Product</button>
+    </div>
+
+    <div class="col-4">
+     <div class="image-container"> <img src="images/img6.png" alt="" />   </div>
+      <h4>T-shirt</h4>
+      <p>Price: $25.00</p>
+      <p>Shipping: $6.99</p>
+	  <button class="orderButton">Buy Product</button>
+    </div>
+
+    <div class="col-4">
+     <div class="image-container"> <img src="images/img7.png" alt="" />    </div>
+      <h4>T-shirt</h4>
+      <p>Price: $25.00</p>
+      <p>Shipping: $6.99</p>
+	  <button class="orderButton">Buy Product</button>
+    </div>
+
+    <div class="col-4">
+     <div class="image-container"> <img src="images/img8.png" alt="" />   </div>
+      <h4>T-shirt</h4>
+      <p>Price: $25.00</p>
+      <p>Shipping: $6.99</p>
+	  <button class="orderButton">Buy Product</button>
+    </div>
+  </div>
+
+
+  </div>
+
+  </div>
+<!-- js for toggle menu -->
+<script>
+  var MenuItems = document.getElementById('MenuItems');
+  MenuItems.style.maxHeight = '0px';
+
+  function menutoggle() {
+    if (MenuItems.style.maxHeight == '0px') {
+      MenuItems.style.maxHeight = '200px';
+    } else {
+      MenuItems.style.maxHeight = '0px';
+    }
+  }
+</script>
+<!-- Hidden form -->
+<div id="orderForm" style="display: none;">
+  <h3>Fill Very Carefully</h3>
+  <i class="fas fa-times" id="crosssymbolone"></i>
+  <form id="orderFormSubmit">
+    <label>Item name:</label>
+    <input type="text" id="itemName" disabled>
+	<label>User name:</label>
+    <input type="text" id="userName" placeholder="Your name">
+	<label>User email:</label>
+    <input type="text" id="userEmail2" placeholder="Your email">
+	<label>Phone Number:</label>
+	<input type="text" id="userNumber" placeholder="Your Phone Number" required>
+	<label>Address:</label>
+    <input type="text" id="userAddress" placeholder="Your Address" required>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+
+
+<!-- Add this div for the loading animation -->
+<div id="loadingAnimation" class="loading-container">
+  <div class="loading-spinner"></div>
+</div>
+
+<style>
+/* Add styles for the loading animation */
+.loading-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #ffffff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
+
+
+
+<script>
+var orderForm = document.getElementById("orderForm");
+var itemNameInput = document.getElementById("itemName");
+var userNameInput = document.getElementById("userName");
+var userAddressInput = document.getElementById("userAddress");
+var userEmailInput = document.getElementById("userEmail2");
+var userPhoneInput = document.getElementById("userNumber");
+var orderFormSubmit = document.getElementById("orderFormSubmit");
+var loadingAnimation = document.getElementById("loadingAnimation");
+var orderButtons = document.getElementsByClassName("orderButton");
+
+for (var i = 0; i < orderButtons.length; i++) {
+  orderButtons[i].addEventListener("click", function() {
+      orderForm.style.display = "block";
+ 
+	});
+}
+
+orderFormSubmit.addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  if (itemNameInput === "" || userNameInput === "" || userEmailInput === "" || userPhoneInput.value === "" || userAddressInput.value === "") {
+    alert("Please fill in all fields.");
+    return;
+  }
+loadingAnimation.style.display = "block";
+  var formData = {
+    itemName: itemNameInput.value,
+    userName: userNameInput.value,
+    userAddress: userAddressInput.value,
+    userEmail: userEmailInput.value ,
+	phone: userPhoneInput.value,
+  };
+
+  fetch("https://backend-for-experiences.onrender.com/submit-order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(function(response) {
+    if (response.ok) {
+      alert("Order submitted successfully.");
+	  loadingAnimation.style.display = "none";
+	   orderForm.style.display = "none";
+    } else {
+      alert("Error submitting order.");
+	  loadingAnimation.style.display = "none";
+    }
+  })
+  .catch(function(error) {
+    alert("Error submitting order.");
+	loadingAnimation.style.display = "none";
+    console.error(error);
+  });
+});
+
+var crosssymbolone = document.getElementById("crosssymbolone");
+crosssymbolone.addEventListener("click", function() {
+  orderForm.style.display = "none";
+});
+
+</script>
+
+
+</body>
+
+</html>
