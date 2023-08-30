@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  
+    <!-- cdn icon link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- custom css file  -->
+   
+</head>
+<body>
+<div class="before"></div>
+<div class="after"></div>
+<div class="container">
+	<div class="container-wrap">
+	
+	
+		<div class="first-box common">
+		
+			<div class="first-box-wrap">
+			<div class="input-group">
+				<button data-product="HP">HP</button>
+				<p>Head Punch</p>
+			</div>
+			<div class="input-group">
+				<button data-product="BP">BP</button>
+				<p>Body Punch</p>
+			</div>
+			<div class="input-group">
+				<button data-product="TP">TP</button>
+				<p>Total Punch</p>
+			</div>
+			<div class="input-group">
+				<button class="Twobtns" data-product="RW">  <div class="leaf-4 leaf1">RW</div>  <div class="leaf-4 leaf2">RW</div>  </button>
+				<p>Round Winner</p>
+			</div>
+			<div class="input-group" >
+				<button class="Twobtns" data-product="KO">  <div class="leaf-4 leaf1">KO</div>  <div class="leaf-4 leaf2">SP</div>  </button>
+				<p>Survival Points <br> Knockout</p>
+			</div>
+			</div>
+			
+			<h1>Boxing Counter Admin</h1>
+			<h2>RO-1-12</h2>
+		</div>
+		
+		
+		
+		<div class="third-box">
+			  <ol class="rounded-list">
+				<li><a href="">HP Button push multiple times number</a></li>
+				<li><a href="">BP Button push multiple times show number</a></li>
+				<li><a href="">TP Button auto count both HP - BP</a></li>
+				<li><a href="">RW Button can switch Red or Blue winner</a></li>
+				<li><a href="">KO - SP Button switch Between KO 0r SP</a></li>
+				<li><a href="">Two counter for fight two admin</a></li>
+				<li><a href="">Every round Separately scores cycle each round</a></li>
+			  
+			  </ol>
+		
+		</div>
+		
+	<div class="second-box common">
+  <div class="second-box-wrap">
+    <div class="input-group">
+      <button data-product="HP">ST</button>
+      <p>Head Punch</p>
+    </div>
+    <div class="input-group">
+      <button data-product="BP">KI</button>
+      <p>Body Punch</p>
+    </div>
+    <div class="input-group">
+      <button data-product="TP">KN</button>
+      <p>Total Punch</p>
+    </div>
+    <div class="input-group">
+      <button data-product="RW">EL</button>
+      <p>Round Winner</p>
+    </div>
+    <div class="input-group">
+      <button class="Twobtns" data-product="RW">  <div class="leaf-4 leaf1">RW</div>  <div class="leaf-4 leaf2">RW</div>  </button>
+      <p>Round Winner</p>
+    </div>
+    <div class="input-group last">
+      <button class="Twobtns" data-product="KO">  <div class="leaf-4 leaf1">KO</div>  <div class="leaf-4 leaf2">SP</div>  </button>
+      <p>Knockout-submission <br> Survival Points</p>
+    </div>
+  </div>
+  
+  <h1>UFC Counter Admin</h1>
+  <h2>RO-1-12</h2>
+</div>
+
+		
+		
+		<div class="fourth-box">
+		
+		 <ol class="rounded-list">
+			<li><a href="">ST: Strikes</a></li>
+			<li><a href="">KI: Kicks</a></li>
+			<li><a href="">KN: Knees</a></li>
+			<li><a href="">El: Elbowes</a></li>
+			<li><a href="">RW: Roundwinner</a></li>
+			<li><a href="">RL; Round Loser</a></li>
+			<li><a href="">KO: Knockout</a></li>
+			<li><a href="">SP: Survival Points</a></li>
+			
+			
+			  </ol>
+		
+		
+		
+		</div>
+	
+	
+	
+	
+	
+	
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+</div>
+ 
+ <div class="rounds">
+	
+	<div class="image-banner-div">
+	<div id="namesToBeDisplayed"><p id="competitor1">Wajih</p><h5 class="roundsh5">V/S</h5><p id="competitor2">Abdullah</p></div>
+	</div>
+	
+	<div class="round-main">
+	<h4 id="round-count">Round 1</h4>
+	
+	<div class="round-box">
+	<h5>HP</h5>
+	<h5 id="score-HP-1"></h5>
+	<h5>HP</h5>
+	<h5 id="score-HP-2"></h5></div>
+	
+	
+	<div class="round-box">
+	<h5>BP</h5>
+	<h5 id="score-BP-1"></h5>
+	<h5>BP</h5>
+	<h5 id="score-BP-2"></h5></div>
+	
+	<div class="round-box">
+	<h5>TP</h5>
+	<h5 id="score-TP-1"></h5>
+	<h5>TP</h5>
+	<h5 id="score-TP-2"></h5></div>
+	
+	
+	
+	<div class="round-box">
+	<h5>RW</h5>
+	<h5 id="score-RW-1"></h5>
+	<h5>RW</h5>
+	<h5 id="score-RW-2"></h5></div>
+	
+	
+	<div class="round-box">
+	<h5>KO</h5>
+	<h5 id="score-KO-1"></h5>
+	<h5>KO</h5>
+	<h5 id="score-KO-2"></h5></div>
+	
+	</div>
+ 
+ 
+ </div>
+ 
+ <!-- Add this script block at the end of the <body> tag -->
+<script>
+  // Object to store scores for each player
+  const scores = {
+    '1': { HP: 0, BP: 0, TP: 0, RW: 0, RL: 0, KO: 0, SP: 0 },
+    '2': { HP: 0, BP: 0, TP: 0, RW: 0, RL: 0, KO: 0, SP: 0 }
+  };
+
+  // Update the scores on the page
+  function updateScores(player) {
+    const playerScores = scores[player];
+    for (const key in playerScores) {
+      const scoreElement = document.getElementById(`score-${key}-${player}`);
+       if (scoreElement) {
+      scoreElement.innerHTML = playerScores[key]; // Use textContent to set the score
+    } else {
+      console.log(`Score element not found for key ${key} and player ${player}`);
+    }
+    }
+  }
+
+ function handleButtonClick(player, action) {
+  // Update scores based on the action
+  if (action === 'HP' || action === 'BP' || action === 'TP') {
+    scores[player][action]++;
+	 
+  } else if (action === 'RW') {
+    scores[player]['RW'] += 100;
+    scores['2']['RL'] += 25;
+  } else if (action === 'KO') {
+    scores[player]['KO'] += 500;
+	console.log('KO Button clicked');
+    scores['2']['SP'] += 25;
+  } else if (action === 'SP') {
+    scores[player]['SP'] += 25;
+  }
+
+  // Update the scores on the page
+  updateScores(player);
+}
+// Attach event listeners to all buttons
+const allButtons = document.querySelectorAll('.input-group button');
+allButtons.forEach(button => {
+  button.addEventListener('click', event => {
+    let player;
+    const commonContainer = event.target.closest('.common');
+    
+    if (commonContainer.classList.contains('first-box')) {
+      player = '1';
+    } else if (commonContainer.classList.contains('second-box')) {
+      player = '2';
+    }
+
+     const action = event.target.getAttribute('data-product');
+    console.log('Button clicked:', player, action); // Add this line for debugging
+    
+      handleButtonClick(player, action);
+    });
+	});
+ 
+</script>
+
+ 
+ 
+<h1>Registered users</h1>
+<div id="user-list"></div>
+<script>
+  // Fetch and display the list of user names
+function fetchUserList() {
+  fetch('https://tame-lime-grasshopper-tux.cyclic.app/api/get-users') // Update with your actual backend route
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.users);
+      const userListDiv = document.getElementById('user-list');
+      userListDiv.innerHTML = ''; // Clear the previous content
+
+      // Loop through the user data and display names
+      data.users.forEach(user => {
+        const userDiv = document.createElement('div');
+        userDiv.textContent = user.name; // Access the name property
+        userListDiv.appendChild(userDiv);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching user names:', error);
+    });
+}
+
+// Call the fetchUserList function when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  fetchUserList();
+});
+
+</script>
+
+
+
+
+
+
+
+
+<br>
+
+ <button id="readyBtn">Ready to Play</button>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+
+<script>
+const socket = io('https://backend-for-experiences.onrender.com/'); 
+
+
+document.getElementById('readyBtn').addEventListener('click', () => {
+  socket.emit('ready');
+});
+
+socket.on('start', () => {
+  alert('Game started!');
+  // You can start the game UI or show a message here
+});
+
+// Handle game updates from the server
+socket.on('update', (data) => {
+  alert('Game state updated:', data);
+  // Update the game UI based on the received data
+});
+
+// Handle player leaving the game
+socket.on('playerLeft', (playerId) => {
+  alert('Player left:', playerId);
+  // Update the game UI or show a message
+});
+</script>
+
+ </body>
+</html>

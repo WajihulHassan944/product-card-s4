@@ -1,286 +1,166 @@
-<html>
-
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="product.css">
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8">
+  <title>Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  
+    <!-- cdn icon link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- custom css file  -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
 
 </head>
 <body>
-<div class="container">
-  <div class="navbar">
-    <div class="logo">
-      <a href="index.html"><img class="img1" src="img1.png"></a>
-    </div>
-    <nav>
-      <ul id="MenuItems">
-        <li><a href="https://jaxcreativemedia.com/">Home</a></li>
-        <li><a href="https://jaxcreativemedia.com/about">About</a></li>
-        <li><a href="https://jaxcreativemedia.com/services">Services</a></li>
-        <li><a href="https://jaxcreativemedia.com/portfolio">Portfolio</a></li>
-        <li><a href="https://jaxcreativemedia.com/podcast">Podcast</a></li>
-        <li><a href="https://jaxcreativemedia.com/contact-us">Contact Us</a></li>
-        <li><a href="https://jaxcreativemedia.com/blog">Blog</a></li>
-        <li><a href="index.html" style="padding-bottom:5px; border-bottom:4px solid red;" >Store</a></li>
-      </ul>
-    </nav>
-    <img src="https://i.ibb.co/6XbqwjD/menu.png" alt="" class="menu-icon" onclick="menutoggle()" />
-  </div>
-</div>
+<div class="game-box">
+	
+	<h1 class="game-box-header" >FANTASY FIGHTER GAME</h1>
+	<div class="icon">
+           <i class="fas fa-user" id="loginto"></i>
+			<h4 id="nameofUser"></h4>
+			<h4 id="emailofUser" style="text-transform: lowercase; display:none;"></h4>
+       </div>
+	 
+	 <div class="flexed-div">
+	<div class="name name-one">Wajih</div>
+	
+	
+	<div class="board">
+	
+	
+	<div class="inputs">
+	<hr>
+	<p>11-1</p>
+	<h3>RECORD</h3>
+	<p>7-0</p>
+	</div>
+	
+	<div class="inputs">
+	<hr>
+	<p>32</p>
+	<h3>AGE</h3>
+	<p>30</p>
+	</div>
+	
+	<div class="inputs">
+	<hr>
+	<p>6'4"</p>
+	<h3>HEIGHT</h3>
+	<p>6'4"</p>
+	</div>
+	
+	<div class="inputs">
+	<hr>
+	<p>265</p>
+	<h3>WEIGHT</h3>
+	<p>265</p>
+	</div>
+	
+	<div class="inputs">
+	<hr>
+	<p>78"</p>
+	<h3>REACH</h3>
+	<p>83"</p>
+	</div>
+	
+	
+	
+	
+	</div>
+	<div class="name name-two">Abdullah</div>
+	
+	
+	</div>
+	
+	
+	
+	</div>
+	
+	<a href="#" id="goToGamePage">Play the Game</a>
+	
+	<script>
+document.addEventListener("DOMContentLoaded", function() {
+ 
+ const urlParams = new URLSearchParams(window.location.search);
+  
 
+  const gamePageURL = "game.html?" + urlParams.toString();
+  
 
-<div class="small-container">
-  <div class="row row-2">
-    <h2>All Products</h2>
-    <select>
-      <option value="">Default Sorting</option>
-      <option value="">Sort by price</option>
-      </select>
-  </div>
-  <div class="row">
-    <div class="col-4">
-     <div class="image-container"> <img src="https://i.ibb.co/zSznSM7/img1.png" alt="" />  </div>
-	<h3><i class="fa fa-heart-o" aria-hidden="true"></i></h3>
-	 <h2>NEW</h2>
-	  <h4>T-shirt</h4>
-      <p>Price: $25.00</p>
-	  
-      <p>Shipping: $6.99</p>
-	  <button class="orderButton" data-product="T-shirt 1"><i class="fa fa-shopping-basket" aria-hidden="true" data-product="T-shirt 1"></i></button>
-	  <button><i class="fa fa-eye" aria-hidden="true"></i></button>
-    </div>
-
-    <div class="col-4">
-     <div class="image-container"> <img src="https://i.ibb.co/C92dWbh/img2.png" alt="" />  </div>
-      <h3><i class="fa fa-heart-o" aria-hidden="true"></i></h3>
-	<h2>NEW</h2>
-	  <h4>T-shirt</h4>
-      <p>Price: $25.00</p>
-      <p>Shipping: $6.99</p>
-	  
-	  <button class="orderButton" data-product="T-shirt 2"><i class="fa fa-shopping-basket" aria-hidden="true" data-product="T-shirt 2"></i></button>
-	   <button><i class="fa fa-eye" aria-hidden="true"></i></button>
-    </div>
-
-    <div class="col-4">
-     <div class="image-container"> <img src="https://i.ibb.co/9qNNw0j/img3.png" alt="" />   </div>
-      <h3><i class="fa fa-heart-o" aria-hidden="true"></i></h3>
-	<h2>NEW</h2>
-	  <h4>T-shirt</h4>
-      <p>Price: $25.00</p>
-      <p>Shipping: $6.99</p>
-	  <button class="orderButton" data-product="T-shirt 3"><i class="fa fa-shopping-basket" aria-hidden="true" data-product="T-shirt 3"></i></button>
-	   <button><i class="fa fa-eye" aria-hidden="true"></i></button>
-    </div>
-
-    <div class="col-4">
-     <div class="image-container"> <img src="https://i.ibb.co/3cxkrL9/img4.png" alt="" />   </div>
-     <h3><i class="fa fa-heart-o" aria-hidden="true"></i></h3>
-	 <h2>NEW</h2>
-	  <h4>T-shirt</h4>
-      <p>Price: $25.00</p>
-      <p>Shipping: $6.99</p>
-	  <button class="orderButton" data-product="T-shirt 4"><i class="fa fa-shopping-basket" aria-hidden="true" data-product="T-shirt 4"></i></button>
-	   <button><i class="fa fa-eye" aria-hidden="true"></i></button>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-4">
-     <div class="image-container"> <img src="https://i.ibb.co/wLMnLPK/img5.png" alt="" />   </div>
-      <h3><i class="fa fa-heart-o" aria-hidden="true"></i></h3>
-	<h2>NEW</h2>
-	  <h4>T-shirt</h4>
-      <p>Price: $25.00</p>
-      <p>Shipping: $6.99</p>
-	  <button class="orderButton" data-product="T-shirt 5"><i class="fa fa-shopping-basket" aria-hidden="true" data-product="T-shirt 5"></i></button>
-	   <button><i class="fa fa-eye" aria-hidden="true"></i></button>
-    </div>
-
-    <div class="col-4">
-     <div class="image-container"> <img src="https://i.ibb.co/4M5hPgR/img6.png" alt="" />   </div>
-      <h3><i class="fa fa-heart-o" aria-hidden="true"></i></h3>
-	<h2>NEW</h2>
-	  <h4>T-shirt</h4>
-      <p>Price: $25.00</p>
-      <p>Shipping: $6.99</p>
-	  <button class="orderButton" data-product="T-shirt 6"><i class="fa fa-shopping-basket" aria-hidden="true" data-product="T-shirt 6"></i></button>
-	   <button><i class="fa fa-eye" aria-hidden="true"></i></button>
-    </div>
-
-    <div class="col-4">
-     <div class="image-container"> <img src="https://i.ibb.co/zJxG2QD/5-F72-B42-A-C2-F8-4-C5-C-918-D-80-FB32-FE4996-1.png" alt="" />    </div>
-      <h3><i class="fa fa-heart-o" aria-hidden="true"></i></h3>
-	<h2>NEW</h2>
-	  <h4>T-shirt</h4>
-      <p>Price: $25.00</p>
-      <p>Shipping: $6.99</p>
-	  <button class="orderButton" data-product="T-shirt 7"><i class="fa fa-shopping-basket" aria-hidden="true" data-product="T-shirt 7"></i></button>
-	   <button><i class="fa fa-eye" aria-hidden="true"></i></button>
-    </div>
-
-    <div class="col-4">
-     <div class="image-container"> <img src="https://i.ibb.co/MBNypwZ/img8.png" alt="" />   </div>
-      <h3><i class="fa fa-heart-o" aria-hidden="true"></i></h3>
-	<h2>NEW</h2>
-	  <h4>T-shirt</h4>
-      <p>Price: $25.00</p>
-      <p>Shipping: $6.99</p>
-	  <button class="orderButton" data-product="T-shirt 8"><i class="fa fa-shopping-basket" aria-hidden="true" data-product="T-shirt 8"></i></button>
-	   <button><i class="fa fa-eye" aria-hidden="true"></i></button>
-    </div>
-  </div>
-
-
-  </div>
-
-  </div>
-<!-- js for toggle menu -->
-<script>
-  var MenuItems = document.getElementById('MenuItems');
-  MenuItems.style.maxHeight = '0px';
-
-  function menutoggle() {
-    if (MenuItems.style.maxHeight == '0px') {
-      MenuItems.style.maxHeight = '200px';
-    } else {
-      MenuItems.style.maxHeight = '0px';
-    }
-  }
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const eyeButtons = document.querySelectorAll(".fa-eye");
-  const body = document.querySelector("body");
-  const modal = document.createElement("div");
-  modal.classList.add("modal");
-  document.body.appendChild(modal);
-
-  eyeButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const imageContainer = this.closest(".col-4").querySelector(".image-container");
-      const imgSrc = imageContainer.querySelector("img").src;
-      modal.innerHTML = `
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <img src="${imgSrc}" alt="Enlarged Image">
-        </div>
-      `;
-      modal.style.display = "block";
-      body.style.overflow = "hidden";
-
-      const closeBtn = modal.querySelector(".close");
-      closeBtn.addEventListener("click", function () {
-        modal.style.display = "none";
-        body.style.overflow = "auto";
-      });
-    });
-  });
+  const gameLink = document.getElementById("goToGamePage");
+  gameLink.href = gamePageURL;
 });
 </script>
 
-<!-- Hidden form -->
-<div id="orderForm" style="display: none;">
-  <h3>Fill Very Carefully</h3>
-  <i class="fas fa-times" id="crosssymbolone"></i>
-  <form id="orderFormSubmit">
-    <label>Item name:</label>
-    <input type="text" id="itemName" disabled>
-	<label>User name:</label>
-    <input type="text" id="userName" placeholder="Your name">
-	<label>User email:</label>
-    <input type="text" id="userEmail2" placeholder="Your email">
-	<label>Phone Number:</label>
-	<input type="text" id="userNumber" placeholder="Your Phone Number" required>
-	<label>Address:</label>
-    <input type="text" id="userAddress" placeholder="Your Address" required>
-    <button type="submit">Submit</button>
-  </form>
-</div>
-
-
-
-<!-- Add this div for the loading animation -->
-<div id="loadingAnimation" class="loading-container">
-  <div class="loading-spinner"></div>
-</div>
-
-
-
-
+	
+	
 <script>
-var orderForm = document.getElementById("orderForm");
-var itemNameInput = document.getElementById("itemName");
-var userNameInput = document.getElementById("userName");
-var userAddressInput = document.getElementById("userAddress");
-var userEmailInput = document.getElementById("userEmail2");
-var userPhoneInput = document.getElementById("userNumber");
-var orderFormSubmit = document.getElementById("orderFormSubmit");
-var loadingAnimation = document.getElementById("loadingAnimation");
-var orderButtons = document.getElementsByClassName("orderButton");
+var logintoIcon = document.getElementById("loginto");
+logintoIcon.addEventListener("click", function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var loginSuccessful = urlParams.get('loginSuccessful') === 'true';
 
-for (var i = 0; i < orderButtons.length; i++) {
-  orderButtons[i].addEventListener("click", function() {
-      orderForm.style.display = "block";
-	   var productName = event.target.getAttribute("data-product");
-       itemNameInput.value = productName;
-	});
+  if (loginSuccessful) {
+    // Remove loginSuccessful=true and objectId from the URL
+    var url = window.location.href.replace('?loginSuccessful=true&objectId=', '');
+
+    // Reset the color of the icon to black
+    logintoIcon.style.color = "black";
+
+    // Show a logout alert message
+    alert("You have been successfully logged out.");
+
+    // Redirect to index.html after a short delay
+    setTimeout(function() {
+      window.location.href = "index.html";
+    }, 1000); // Delay of 2 seconds before redirecting (adjust as needed)
+  } else {
+    // User is not logged in, redirect to login page
+    window.location.href = "login.html";
+  }
+});
+
+
+var urlParams = new URLSearchParams(window.location.search);
+var loginSuccessful = urlParams.get('loginSuccessful') === 'true';
+if (loginSuccessful) {
+
+  logintoIcon.style.color = "red";
+ }
+
+
+
+///////
+async function fetchUserData() {
+
+const nameofUser = document.getElementById("nameofUser");
+const emailofUser = document.getElementById("emailofUser");
+  try {
+  
+    var urlParams = new URLSearchParams(window.location.search);
+    var objectId = urlParams.get('objectId');
+
+    const response = await fetch('https://tame-lime-grasshopper-tux.cyclic.app/users/' + objectId);
+    if (!response.ok) {
+      throw new Error('Error fetching user data');
+    }
+
+    const data = await response.json();
+	nameofUser.innerHTML = `${data.name}`;
+	emailofUser.innerHTML = `${data.email}`;
+	
+    console.log(data);
+	
+  } catch (error) {
+    console.error('Error:', error);
+    
+  }
 }
 
-orderFormSubmit.addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent default form submission
 
-  if (itemNameInput === "" || userNameInput === "" || userEmailInput === "" || userPhoneInput.value === "" || userAddressInput.value === "") {
-    alert("Please fill in all fields.");
-    return;
-  }
-loadingAnimation.style.display = "block";
-  var formData = {
-    itemName: itemNameInput.value,
-    userName: userNameInput.value,
-    userAddress: userAddressInput.value,
-    userEmail: userEmailInput.value ,
-	phone: userPhoneInput.value,
-  };
-
-  fetch("https://backend-for-experiences.onrender.com/submit-order", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formData)
-  })
-  .then(function(response) {
-    if (response.ok) {
-      alert("Order submitted successfully.");
-	  loadingAnimation.style.display = "none";
-	   orderForm.style.display = "none";
-    } else {
-      alert("Error submitting order.");
-	  loadingAnimation.style.display = "none";
-    }
-  })
-  .catch(function(error) {
-    alert("Error submitting order.");
-	loadingAnimation.style.display = "none";
-    console.error(error);
-  });
-});
-
-var crosssymbolone = document.getElementById("crosssymbolone");
-crosssymbolone.addEventListener("click", function() {
-  orderForm.style.display = "none";
-});
+fetchUserData();
 
 </script>
-
-
-</body>
-
+ </body>
 </html>
