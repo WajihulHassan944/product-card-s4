@@ -332,16 +332,26 @@ h2{
 .icon{
 	display:flex;
 	position:absolute;
+	flex-direction:column;
 	top:50px;
-	right:-150px;
+}
+.icon-one{
+	left:40%;
+}
+.icon-two{
+	right:40%;
 }
 .icon i{
 	cursor:pointer;
+	color:#fff;
+	font-size:22px;
 }
 .icon h4{
 	font-size:18px;
 	color:red;
-	margin-left:15px;
+	margin-top:15px;
+	margin-left:-12px;
+	color:#fff;
 }
 .hidden {
   display: none;
@@ -407,4 +417,22 @@ h2{
 	margin-top:50px;
 	padding:15px;
 	box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+#leave1{
+	padding:8px 20px;
+	background:#fff;
+	color:red;
+	box-shadow:0 5px 10px rgba(0,0,0,0.2);
+	border:none;
+	outline:none;
+	border-radius:3px;
+	position:absolute;
+	top:50%;
+	left:28%;
+	cursor:pointer;
+}
+#leave1:hover{
+	color:#fff;
+	background:transparent;
+	border:2px solid #fff;
 }

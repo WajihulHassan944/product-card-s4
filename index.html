@@ -16,11 +16,6 @@
 <div class="game-box">
 	
 	<h1 class="game-box-header" >FANTASY FIGHTER GAME</h1>
-	<div class="icon">
-           <i class="fas fa-user" id="loginto"></i>
-			<h4 id="nameofUser"></h4>
-			<h4 id="emailofUser" style="text-transform: lowercase; display:none;"></h4>
-       </div>
 	 
 	 <div class="flexed-div">
 	<div class="name name-one">Wajih</div>
@@ -76,90 +71,148 @@
 	
 	
 	</div>
-	
-	<a href="#" id="goToGamePage">Play the Game</a>
-	
-	<script>
-document.addEventListener("DOMContentLoaded", function() {
- 
- const urlParams = new URLSearchParams(window.location.search);
+	<h6 style="font-size:23px; font-weight:600; color:#ccc; margin-bottom:10px;">My Predictions</h6>
+	<p style="color:red;margin-bottom:30px;">(Your predictions will be visible to admins)</p>
+	<form id="prediction-form">
+  <!-- Input fields for predictions -->
+    <div class="input-group">
+    <label for="name-input">Your Name:</label>
+    <input type="text" id="name-input" name="playerName" required>
+  </div>
+  <div class="input-group">
+    <label for="hp-prediction">HP Prediction:</label>
+    <input type="number" id="hp-prediction" name="hpPrediction" min="0">
+  </div>
   
-
-  const gamePageURL = "game.html?" + urlParams.toString();
+  <div class="input-group">
+    <label for="bp-prediction">BP Prediction:</label>
+    <input type="number" id="bp-prediction" name="bpPrediction" min="0">
+  </div>
   
-
-  const gameLink = document.getElementById("goToGamePage");
-  gameLink.href = gamePageURL;
-});
-</script>
-
-	
-	
-<script>
-var logintoIcon = document.getElementById("loginto");
-logintoIcon.addEventListener("click", function() {
-  var urlParams = new URLSearchParams(window.location.search);
-  var loginSuccessful = urlParams.get('loginSuccessful') === 'true';
-
-  if (loginSuccessful) {
-    // Remove loginSuccessful=true and objectId from the URL
-    var url = window.location.href.replace('?loginSuccessful=true&objectId=', '');
-
-    // Reset the color of the icon to black
-    logintoIcon.style.color = "black";
-
-    // Show a logout alert message
-    alert("You have been successfully logged out.");
-
-    // Redirect to index.html after a short delay
-    setTimeout(function() {
-      window.location.href = "index.html";
-    }, 1000); // Delay of 2 seconds before redirecting (adjust as needed)
-  } else {
-    // User is not logged in, redirect to login page
-    window.location.href = "login.html";
-  }
-});
-
-
-var urlParams = new URLSearchParams(window.location.search);
-var loginSuccessful = urlParams.get('loginSuccessful') === 'true';
-if (loginSuccessful) {
-
-  logintoIcon.style.color = "red";
- }
-
-
-
-///////
-async function fetchUserData() {
-
-const nameofUser = document.getElementById("nameofUser");
-const emailofUser = document.getElementById("emailofUser");
-  try {
+  <div class="input-group">
+    <label for="tp-prediction">TP Prediction:</label>
+    <input type="number" id="tp-prediction" name="tpPrediction" min="0">
+  </div>
   
-    var urlParams = new URLSearchParams(window.location.search);
-    var objectId = urlParams.get('objectId');
-
-    const response = await fetch('https://tame-lime-grasshopper-tux.cyclic.app/users/' + objectId);
-    if (!response.ok) {
-      throw new Error('Error fetching user data');
-    }
-
-    const data = await response.json();
-	nameofUser.innerHTML = `${data.name}`;
-	emailofUser.innerHTML = `${data.email}`;
-	
-    console.log(data);
-	
-  } catch (error) {
-    console.error('Error:', error);
-    
-  }
+  <div class="input-group">
+    <label for="rw-prediction">RW Prediction:</label>
+    <select id="rw-prediction" name="rwPrediction">
+      <option value="1">Fighter A (Red)</option>
+      <option value="2">Fighter B (Blue)</option>
+    </select>
+  </div>
+  
+  <div class="input-group">
+    <label for="ko-sp-prediction">KO or SP Prediction:</label>
+    <select id="ko-sp-prediction" name="koSpPrediction">
+      <option value="KO">KO</option>
+      <option value="SP">Survival Points</option>
+    </select>
+  </div>
+  
+  <!-- Add more input fields for other predictions -->
+  
+  <button type="submit">Submit Predictions</button>
+</form>
+<style>
+/* Basic form styling */
+#prediction-form {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom:100px;
 }
 
+.input-group {
+  margin-bottom: 15px;
+}
 
-fetchUserData();
+/* Label styling */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Button styling */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Centering the form */
+#prediction-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items:center;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  // Fetch scores from the backend, update scores on the page
+  
+  const predictionForm = document.getElementById('prediction-form');
+  predictionForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    const formData = new FormData(predictionForm);
+	const playerName = formData.get('playerName'); // Get the entered name
+    
+    const playerPredictions = {
+     player: playerName, // Use the entered name as the player
+       round: 1,
+      scores: {
+        HP: formData.get('hpPrediction'),  // Use 'hpPrediction' matching the input name attribute
+        BP: formData.get('bpPrediction'),
+        TP: formData.get('tpPrediction'),
+        RW: formData.get('rwPrediction'),
+        KO_SP: formData.get('koSpPrediction'),  // Assuming you use a single field for KO/SP
+        // Add other predictions
+      },
+    };
+
+    try {
+      const response = await fetch('https://lovely-mite-leg-warmers.cyclic.app/api/scores', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(playerPredictions),
+      });
+      if (response.ok) {
+        alert('Predictions submitted successfully');
+      } else {
+        console.error('Failed to submit predictions');
+      }
+    } catch (error) {
+      console.error('Error submitting predictions:', error);
+    }
+  });
+
+  // Rest of your code for fetching scores and button clicks
+});
 
 </script>
  </body>
