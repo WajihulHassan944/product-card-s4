@@ -656,7 +656,7 @@ const roundCount = document.getElementById("round-count");
   // Start a new round with a 1-minute time limit
   function startNewRound() {
       resetScores(); // Set the end time for the round
-     roundEndTime = Date.now() + 20000;// 1 minute (60000 milliseconds)
+     roundEndTime = Date.now() + 60000;// 1 minute (60000 milliseconds)
 
     // Log the start of the round
     console.log(`Round ${currentRound} started. Time limit: 1 minute.`);

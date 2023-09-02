@@ -605,9 +605,7 @@ if (roundEndTime && Date.now() >= roundEndTime) {
   } catch (error) {
     console.error('Error storing round results:', error);
   }
-  
-  alert(`Please click "Start round" button to play the next round`);
-}
+  }
 
 }
 
@@ -660,7 +658,7 @@ const roundCount = document.getElementById("round-count");
 
     // Log the start of the round
     console.log(`Round ${currentRound} started. Time limit: 1 minute.`);
-     alert(`Round ${currentRound} started. Time limit: 20 seconds.`);
+     alert(`Round ${currentRound} started. Time limit: 60 seconds.`);
     
 	roundCount.innerHTML = `Round ${currentRound}`;
 	// Increment the round number for the next round
