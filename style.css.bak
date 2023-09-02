@@ -62,6 +62,7 @@ body {
 	flex-direction:column;
 	border:8px solid #252523;
 	margin-right:30px;
+	margin-top:100px;
 	
 }
 .first-box-wrap{
@@ -108,6 +109,13 @@ body {
 	align-items:center;
 	text-align:center;
 }
+#blueLeaf{
+	background-color:#006aff;
+	opacity:1;
+}
+#blueLeaf:hover{
+	opacity:0.7;
+}
 .leaf1{
 	background-color:#fb0001;
 	padding:5px;
@@ -129,13 +137,15 @@ body {
 	width:450px;
 	height:250px;
 	padding:10px;
-	margin-top:-25px;
+	margin-top:-45px;
+	padding-right:45px;
 }
 .fourth-box{
 	width:450px;
 	height:250px;
 	padding:10px;
-	margin-top:-50px;
+	margin-top:-140px;
+	
 }
 h1{
 	color:#fff;
@@ -232,7 +242,7 @@ h2{
 
 .game-box{
 	width:100%;
-	height:100vh;
+	height:70vh;
 	display:flex;
 	justify-content:center;
 	align-items:center;
@@ -261,16 +271,16 @@ h2{
 	align-items:center;
 	border-top:2px solid #ccc;
 	border-bottom:2px solid #ccc;
-	padding:20px 0;
-	padding-top:35px;
+	padding:20px;
 	position:relative;
-}
-.game-box .flexed-div::before{
-	content:'Leader Board';
-	position:absolute;
-	top:-50px;
-	font-size:18px;
-	font-weight:600;
+	flex-direction:column;
+	text-align:center;
+	overflow:auto;
+	max-height:250px;
+	}
+.flexed-div h3{
+	margin-top:7px;
+	
 }
 .game-box .inputs{
 	display:flex;
@@ -288,29 +298,26 @@ h2{
 
 .game-box .name{
 	width:200px;
-	height:50px;
+	height:40px;
 	text-align:center;
 	background:#f1f1f1;
 	display:flex;
 	justify-content:center;
 	align-items:center;
 	position:relative;
+	margin-right:20px;
 }
-.game-box .name::before{
-	content:'';
-	position:absolute;
-	width:60px;
-	height:60px;
-	border-radius:50%;
-	top:-90px;
-	background: url('user.png'); /* Set the background image */
-    background-size: cover; /* Adjust as needed */
-	
+.wrapup{
+	margin:15px auto;
+	display:flex;
+	justify-content:left;
+	align-items:center;
+	width:100%;
+
 }
 .name-one{
 	border-top:4px solid #ff0c09;
-	margin-right:60px;
-}
+	}
 
 .name-two{
 	border-top:4px solid #3591f1;
@@ -334,7 +341,7 @@ h2{
 	position:absolute;
 	flex-direction:column;
 	top:50px;
-}
+	}
 .icon-one{
 	left:40%;
 }
@@ -345,14 +352,14 @@ h2{
 	cursor:pointer;
 	color:#fff;
 	font-size:22px;
-}
+	}
 .icon h4{
 	font-size:18px;
 	color:red;
 	margin-top:15px;
 	margin-left:-12px;
 	color:#fff;
-}
+	}
 .hidden {
   display: none;
 }
@@ -398,6 +405,7 @@ h2{
 	text-align:center;
 	font-size:23px;
 	margin-bottom:15px;
+	color:#fff;
 	
 }
 .round-box h5{
@@ -418,7 +426,7 @@ h2{
 	padding:15px;
 	box-shadow:0 5px 10px rgba(0,0,0,0.1);
 }
-#leave{
+#leave1{
 	padding:8px 20px;
 	background:#fff;
 	color:red;
@@ -431,8 +439,150 @@ h2{
 	left:28%;
 	cursor:pointer;
 }
-#leave:hover{
+#leave1:hover{
 	color:#fff;
 	background:transparent;
 	border:2px solid #fff;
+}
+.leader-board-h1{
+	color:#777;
+	margin-top:100px;
+	margin-bottom:20px;
+	background:none;
+	width:100%;
+	text-align:center;
+}
+.lastp{
+	text-align:center;
+	color:#ccc;
+}
+
+
+
+.awesome-list {
+	/* Create a new instance of a counter called "my-awesome-list" and set the counter to 0. */
+	counter-reset: my-awesome-list;
+	display: inline-block;
+	margin-left: -3.4em;
+	vertical-align: middle;
+	position: relative;
+}
+
+.awesome-list-item {
+	 /* Increment the "my-awesome-list" counter for every list item. */
+	counter-increment: my-awesome-list;
+	margin: 1em 0;
+	position: relative;
+	width: 100%;
+}
+
+.awesome-list-item::before {
+	/* Display the counter and set the list style for the list. */
+	content: counter(my-awesome-list, decimal-leading-zero); 
+	background: #FFF;
+	border: 10px solid #2C3E50;
+	border-radius: 50%;
+	color: #FFF;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 1.8em;
+	line-height: 2.6em;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	width: 2.6em;
+	z-index: 2;
+}
+
+
+.general-guidelines {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+	background: #ECF0F1;
+	font-family: sans-serif;
+	font-size: 15px;
+	
+}
+
+.list-intro {
+	background: #2C3E50;
+	color: #FFF;
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 2em 4em 2em 2em;
+	width: 100px;
+	height: 70vh;
+	vertical-align: middle;
+}
+
+.list-intro > h1 {
+	font-size: 1.4em;
+}
+
+.awesome-list-item > span {
+	background: #8E44AD;
+	border-radius: 4px;
+	color: #FFF;
+	display: inline-block;
+	position: relative;
+	line-height: 2em;
+	margin: 0 0 0 -2em;
+	padding: 1.2em 2em 1.2em 3em;
+	vertical-align: middle;
+}
+
+.awesome-list-item > span::after {
+	background: transparent;
+	content: "";
+	position: absolute;
+	top: 24%;
+	right: 2%;
+	width: 50%;
+	height: 50%;
+	max-width: 300px;
+	z-index: -1;
+	box-shadow: 0 15px 10px rgba(0, 0, 0, 0.4);
+	transform: rotate(3deg);
+}
+
+.awesome-list-item:nth-child(1)::before {
+	background: #8E44AD;
+	border-color: #2C3E50;
+	box-shadow: 0 0 0 3px #8E44AD;
+}
+
+.awesome-list-item:nth-child(1) > span {
+	background: #8E44AD;
+}
+
+.awesome-list-item:nth-child(2)::before {
+	background: #2980B9;
+	border-color: #2C3E50;
+	box-shadow: 0 0 0 3px #2980B9;
+}
+
+.awesome-list-item:nth-child(2) > span {
+	background: #2980B9;
+}
+
+.awesome-list-item:nth-child(3)::before {
+	background: #27AE60;
+	border-color: #2C3E50;
+	box-shadow: 0 0 0 3px #27AE60;
+}
+
+.awesome-list-item:nth-child(3) > span {
+	background: #27AE60;
+}
+
+.awesome-list-item:nth-child(4)::before {
+	background: #16A085;
+	border-color: #2C3E50;
+	box-shadow: 0 0 0 3px #16A085;
+}
+.awesome-list-item:nth-child(4) > span {
+	background: #16A085;
 }

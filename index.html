@@ -17,57 +17,60 @@
 	
 	<h1 class="game-box-header" >FANTASY FIGHTER GAME</h1>
 	 
-	 <div class="flexed-div">
-	<div class="name name-one">Wajih</div>
+	 <h3 style="margin-bottom:20px;">Leader Board</h3>
+	 <div class="flexed-div" id="flexedDiv">
+	 
 	
-	
-	<div class="board">
-	
-	
-	<div class="inputs">
-	<hr>
-	<p>11-1</p>
-	<h3>RECORD</h3>
-	<p>7-0</p>
-	</div>
-	
-	<div class="inputs">
-	<hr>
-	<p>32</p>
-	<h3>AGE</h3>
-	<p>30</p>
-	</div>
-	
-	<div class="inputs">
-	<hr>
-	<p>6'4"</p>
-	<h3>HEIGHT</h3>
-	<p>6'4"</p>
-	</div>
-	
-	<div class="inputs">
-	<hr>
-	<p>265</p>
-	<h3>WEIGHT</h3>
-	<p>265</p>
-	</div>
-	
-	<div class="inputs">
-	<hr>
-	<p>78"</p>
-	<h3>REACH</h3>
-	<p>83"</p>
+	 <div class="wrapup">
+	<div class="name name-one" id="nameOfWinner">Wajih</div>
+	<h3>Wajih scored the best</h3>
 	</div>
 	
 	
 	
-	
-	</div>
-	<div class="name name-two">Abdullah</div>
-	
-	
 	</div>
 	
+	<script>
+	document.addEventListener('DOMContentLoaded', () => {
+    const flexedDiv = document.getElementById('flexedDiv'); 
+
+    async function getItems() {
+        flexedDiv.innerHTML = ''; // Clear the existing content
+
+        try {
+            const response = await fetch('https://lovely-mite-leg-warmers.cyclic.app/items');
+            const items = await response.json();
+
+            items.forEach((item, index) => {
+                // Create a wrapup container for each item
+                const wrapupDiv = document.createElement('div');
+                wrapupDiv.classList.add('wrapup');
+
+                // Create name div
+                const nameDiv = document.createElement('div');
+                nameDiv.classList.add('name', 'name-one');
+                nameDiv.textContent = item.name;
+
+                // Create an h3 element for the description
+                const descriptionH3 = document.createElement('h3');
+                descriptionH3.textContent = item.description;
+
+                // Append elements to the wrapup container
+                wrapupDiv.appendChild(nameDiv);
+                wrapupDiv.appendChild(descriptionH3);
+
+                // Append the wrapup container to the parent div
+                flexedDiv.appendChild(wrapupDiv);
+            });
+        } catch (error) {
+            console.error('Error fetching items:', error);
+        }
+    }
+
+    getItems();
+
+});
+</script>
 	
 	
 	</div>
@@ -215,5 +218,203 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 </script>
+
+
+
+
+ <h1>Previous Round Results</h1>
+<style>
+  /* Basic styling for results */
+  #results {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width:100%;
+	max-width:1000px;
+	border:2px solid #ccc;
+	box-shadow:0 5px 10px rgba(0,0,0,0.2);
+	max-height:690px;
+	overflow:auto;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-top: 10px;
+	padding-bottom:10px;
+	border-bottom:2px solid blue;
+  }
+
+  .section-title {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .subsection-title {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .subsubsection-title {
+    font-size: 18px;
+    margin-top: 10px auto;
+	
+  }
+
+  .results-list {
+    list-style: none;
+    padding:10px auto;
+	
+  }
+
+  .result-item {
+    margin-bottom: 10px;
+  }
+
+  .bold {
+    font-weight: bold;
+	margin:10px auto;
+	padding-bottom:10px;
+  
+  }
+   .bold1 {
+    font-weight: bold;
+	margin:10px auto;
+  }
+  .results-wrap{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	width:400px;
+	
+  }
+  .bold11{
+	border-top:2px solid gray;
+	padding-top:10px;
+  }
+</style>
+
+<div id="results">
+  <div class="results-wrap">
+  <div class="title">Player 1 Scores</div>
+  <div class="results-container" id="adminPlayer1Results"></div>
+</div>
+
+
+ <div class="results-wrap">
+   <div class="title">Player 2 Scores</div>
+  <div class="results-container" id="adminPlayer2Results"></div>
+</div>
+</div>
+
+<script>
+const resultsElement = document.getElementById('results');
+const adminPlayer1ResultsElement = document.getElementById('adminPlayer1Results');
+const adminPlayer2ResultsElement = document.getElementById('adminPlayer2Results');
+
+const backendURL = 'https://lovely-mite-leg-warmers.cyclic.app/api/fetchRoundResults';
+
+async function fetchAndDisplayResults(adminPlayerId, resultsContainer) {
+  try {
+    const response = await fetch(`${backendURL}?adminPlayerId=${adminPlayerId}`);
+
+    if (response.ok) {
+      const results = await response.json();
+      // Filter out _id fields from the results
+      const sanitizedResults = sanitizeResults(results);
+      
+      // Display the sanitized results in a more organized format
+      resultsContainer.innerHTML = `
+        <ul class="results-list">
+          ${sanitizedResults.games.map((game) => `
+            <li class="result-item">
+              <div class="bold">Game Number: <span style="color:red;">${game.gameNumber}</span></div> 
+              
+              <ul class="results-list">
+                ${game.rounds.map((round) => `
+                  <li class="result-item">
+                    <div class="bold1 bold11">Round Number: ${round.roundNumber}</div> 
+                    <div class="subsubsection-title">Scores:</div>
+                    <ul class="results-list">
+                      ${Object.keys(round.scores).map((scoreKey) => `
+                        <li class="result-item"><div class="bold1">${scoreKey}: ${round.scores[scoreKey]}</div> </li>
+                      `).join('')}
+                    </ul>
+                  </li>
+                `).join('')}
+              </ul>
+            </li>
+          `).join('')}
+        </ul>
+      `;
+    } else {
+      console.error('Failed to fetch round results:', response.status);
+      resultsContainer.innerHTML = 'Failed to fetch round results.';
+    }
+  } catch (error) {
+    console.error('Error fetching round results:', error);
+    resultsContainer.innerHTML = 'Error fetching round results.';
+  }
+}
+
+// Function to sanitize results and remove _id fields
+function sanitizeResults(results) {
+  return JSON.parse(JSON.stringify(results, (key, value) => {
+    if (key === '_id') {
+      return undefined; // Exclude _id fields
+    }
+    return value;
+  }));
+}
+
+
+
+async function getAdminPlayerIds() {
+  try {
+    const firstObjectIdResponse = await fetch('https://lovely-mite-leg-warmers.cyclic.app/getFirstObjectId');
+    const lastObjectIdResponse = await fetch('https://lovely-mite-leg-warmers.cyclic.app/getLastObjectId');
+    
+    if (firstObjectIdResponse.ok && lastObjectIdResponse.ok) {
+      const firstObjectIdData = await firstObjectIdResponse.json();
+      const lastObjectIdData = await lastObjectIdResponse.json();
+      
+      const adminPlayer1ObjectId = firstObjectIdData.firstObjectId;
+      const adminPlayer2ObjectId = lastObjectIdData.lastObjectId;
+
+      return { adminPlayer1ObjectId, adminPlayer2ObjectId };
+    } else {
+      console.error('Error fetching admin player IDs:', firstObjectIdResponse.status, lastObjectIdResponse.status);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching admin player IDs:', error);
+    return null;
+  }
+}
+
+
+// Call getAdminPlayerIds to retrieve both admin player IDs
+async function getAndDisplayAdminPlayers() {
+  const adminPlayerIds = await getAdminPlayerIds();
+
+  if (adminPlayerIds) {
+    // Call fetchAndDisplayResults for adminPlayer1ObjectId
+    fetchAndDisplayResults(adminPlayerIds.adminPlayer1ObjectId, adminPlayer1ResultsElement);
+
+    // Call fetchAndDisplayResults for adminPlayer2ObjectId
+    fetchAndDisplayResults(adminPlayerIds.adminPlayer2ObjectId, adminPlayer2ResultsElement);
+  } else {
+    console.error('Failed to retrieve admin player IDs.');
+  }
+}
+
+// Call getAndDisplayAdminPlayers to retrieve and display both admin player results
+getAndDisplayAdminPlayers();
+</script>
+
  </body>
 </html>

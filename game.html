@@ -325,7 +325,7 @@ nameofUser2.addEventListener("click", async function () {
 				<p>Total Punch</p>
 			</div>
 			<div class="input-group">
-				<button  data-product="RW"> RW </button>
+				<button  data-product="RW" id="blueLeaf"> RW </button>
 				<p>Round Winner</p>
 			</div>
 			<div class="input-group" >
@@ -340,6 +340,44 @@ nameofUser2.addEventListener("click", async function () {
 		
 		
 		
+	
+ <h2 style="position:absolute; top:2%; left:28%; width:200px;">Admin player 1</h2>
+  		
+ <h2 style="position:absolute; top:2%; left:59.3%; width:200px;">Admin player 2</h2>
+  		
+	<div class="second-box common">
+	
+	<div class="second-box-wrap">
+    <div class="input-group">
+      <button data-product="HP">HP</button>
+      <p>Head Punch</p>
+    </div>
+    <div class="input-group">
+      <button data-product="BP">BP</button>
+      <p>Body Punch</p>
+    </div>
+    <div class="input-group">
+      <button data-product="TP">TP</button>
+      <p>Total Punch</p>
+    </div>
+    <div class="input-group">
+      <button data-product="RW">RW</button>
+      <p>Round Winner</p>
+    </div>
+    <div class="input-group">
+      <button class="Twobtns" data-product="KO">  <div class="leaf-4 leaf1">KO</div>  <div class="leaf-4 leaf2">SP</div>  </button>
+      <p>Knockout-submission <br> Survival Points</p>
+    </div>
+  </div>
+  
+  <h1>Boxing Counter Admin</h1>
+  <h2>RO-1-12</h2>
+</div>
+
+		
+		
+		
+	
 		<div class="third-box">
 			  <ol class="rounded-list">
 				<li><a href="">HP Button push multiple times number</a></li>
@@ -353,86 +391,9 @@ nameofUser2.addEventListener("click", async function () {
 			  </ol>
 		
 		</div>
- <h2 style="position:absolute; top:0; left:19.3%; width:200px;">Admin player 1</h2>
-  		
- <h2 style="position:absolute; top:23.5%; left:19.3%; width:200px;">Admin player 2</h2>
-  		
-	<div class="second-box common">
 	
-	<div class="second-box-wrap">
-    <div class="input-group">
-      <button data-product="HP">ST</button>
-      <p>Head Punch</p>
-    </div>
-    <div class="input-group">
-      <button data-product="BP">KI</button>
-      <p>Body Punch</p>
-    </div>
-    <div class="input-group">
-      <button data-product="TP">KN</button>
-      <p>Total Punch</p>
-    </div>
-    <div class="input-group">
-      <button data-product="RW">EL</button>
-      <p>Round Winner</p>
-    </div>
-    <div class="input-group">
-      <button  data-product="RW"> RW  </button>
-      <p>Round Winner</p>
-    </div>
-    <div class="input-group last">
-      <button class="Twobtns" data-product="KO">  <div class="leaf-4 leaf1">KO</div>  <div class="leaf-4 leaf2">SP</div>  </button>
-      <p>Knockout-submission <br> Survival Points</p>
-    </div>
-  </div>
-  
-  <h1>UFC Counter Admin</h1>
-  <h2>RO-1-12</h2>
-</div>
-
+	<div class="fourth-box">
 		
-		
-		<div class="fourth-box">
-		
-		 <ol class="rounded-list">
-			<li><a href="">ST: Strikes</a></li>
-			<li><a href="">KI: Kicks</a></li>
-			<li><a href="">KN: Knees</a></li>
-			<li><a href="">El: Elbowes</a></li>
-			<li><a href="">RW: Roundwinner</a></li>
-			<li><a href="">RL; Round Loser</a></li>
-			<li><a href="">KO: Knockout</a></li>
-			<li><a href="">SP: Survival Points</a></li>
-			
-			
-			  </ol>
-		
-		
-		
-		</div>
-	
-	
-	
-	
-	
-	
-	
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-</div>
- 
- <div class="rounds">
-	
-	<div class="image-banner-div">
-	<div id="namesToBeDisplayed"><p id="competitor1">Player 1</p><h5 class="roundsh5">V/S</h5><p id="competitor2">Player 2</p></div>
-	</div>
 	
 	<div class="round-main">
 	<h4 id="round-count">Round 1</h4>
@@ -475,67 +436,282 @@ nameofUser2.addEventListener("click", async function () {
  
  
  </div>
- <!-- Add this script block at the end of the <body> tag -->
+	
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+</div>
+<div id="score-RL-1" style="display:none">0</div>
+<div id="score-SP-1" style="display:none">0</div>
+<div id="score-RL-2" style="display:none">0</div>
+<div id="score-SP-2" style="display:none">0</div>
+<button id="startRound" style=" position:absolute;cursor:pointer; top:20px; left:690px; color:#fff; padding:5px 17px; border:2px solid #fff; outline:none; background:transparent; z-index:999999;">Start the round</button>
+
 <script>
-  // Object to store scores for each player
-  const scores = {
+document.addEventListener('DOMContentLoaded', async () => {
+ const scores = {
     '1': { HP: 0, BP: 0, TP: 0, RW: 0, RL: 0, KO: 0, SP: 0 },
     '2': { HP: 0, BP: 0, TP: 0, RW: 0, RL: 0, KO: 0, SP: 0 }
   };
+ function resetScores() {
+  scores['1'] = { HP: 0, BP: 0, TP: 0, RW: 0, RL: 0, KO: 0, SP: 0 };
+  scores['2'] = { HP: 0, BP: 0, TP: 0, RW: 0, RL: 0, KO: 0, SP: 0 };
+  updateScores('1');
+  updateScores('2');
+  currentWinnerColor = 'Red';
+}
+  
+  let currentWinnerColor = 'Red';
+  let currentRound = 1; // Assuming the initial round is 1
+  let roundEndTime = Date.now() + 60000; // Variable to store the end time of the current round
 
-  // Update the scores on the page
+ // Flag to control whether button clicks should be processed or not
+  let roundInProgress = false;
+
+
+
+  // Function to update scores
   function updateScores(player) {
     const playerScores = scores[player];
     for (const key in playerScores) {
       const scoreElement = document.getElementById(`score-${key}-${player}`);
-       if (scoreElement) {
-      scoreElement.innerHTML = playerScores[key]; // Use textContent to set the score
+      if (scoreElement) {
+        scoreElement.innerHTML = playerScores[key];
+      } else {
+        console.log(`Score element not found for key ${key} and player ${player}`);
+      }
+    }
+  }
+
+  // Function to update total punches
+  function updateTotalPunches(player) {
+    scores[player]['TP'] = scores[player]['HP'] + scores[player]['BP'];
+    updateScores(player);
+  }
+
+ async function handleButtonClick(player, action) {
+  const adminPlayerIds = await getAdminPlayerIds();
+
+  if (roundInProgress) {
+    if (action === 'HP' || action === 'BP') {
+      scores[player][action]++;
+      updateTotalPunches(player);
+    } else if (action === 'RW') {
+      // Toggle the winner color between 'Red' and 'Blue'
+      currentWinnerColor = currentWinnerColor === 'Red' ? 'Blue' : 'Red';
+      scores[player]['RW'] += 100;
+      scores[player === '1' ? '2' : '1']['RL'] += 25; // The other player becomes the loser
+      updateScores(player);
+      updateScores(player === '1' ? '2' : '1'); // Update the other player's scores
+      document.getElementById('currentWinnerColor').textContent = currentWinnerColor;
+
+      // Change color based on the current winner color
+      if (currentWinnerColor === 'Red') {
+        document.getElementById('currentWinnerColor').style.color = '#ff5733'; // Red color
+      } else if (currentWinnerColor === 'Blue') {
+        document.getElementById('currentWinnerColor').style.color = '#0000ff'; // Blue color
+      }
+
+      // No need to store results here; just update scores as you're doing now
+    } else if (action === 'KO') {
+      scores[player]['KO'] += 500;
+      scores['2']['SP'] += 25;
+      updateScores(player);
+      updateScores('2');
+
+      // No need to store results here; just update scores as you're doing now
+    } else if (action === 'SP') {
+      scores[player]['SP'] += 25;
+      updateScores(player);
+    }
+  }
+
+  // Check if the round time is up
+if (roundEndTime && Date.now() >= roundEndTime) {
+  // Round time is up, log the current statistics
+  roundInProgress = false;
+  console.log(`Round ${currentRound - 1} Statistics:`);
+  console.log(`Player 1: HP=${scores['1']['HP']}, TP=${scores['1']['TP']}, BP=${scores['1']['BP']}, RW=${scores['1']['RW']}, KO=${scores['1']['KO']}`);
+  console.log(`Player 2: HP=${scores['2']['HP']}, TP=${scores['2']['TP']}, BP=${scores['2']['BP']}, RW=${scores['2']['RW']}, KO=${scores['2']['KO']}`);
+  console.log(`Round ${currentRound - 1} ended`);
+  // Prepare the data for Player 1 to be sent to the backend
+  const roundDataPlayer1 = {
+    adminPlayerId: adminPlayerIds.adminPlayer1ObjectId, // Replace with the correct admin player ID for Player 1
+    gameNumber: 1, // Assuming currentRound represents the game number
+    roundNumber: currentRound - 1, // The completed round number
+    scores: {
+      HP: scores['1']['HP'],
+      BP: scores['1']['BP'],
+      TP: scores['1']['TP'],
+      RW: scores['1']['RW'],
+      RL: scores['1']['RL'], // You can add RL and KO if needed
+      KO: scores['1']['KO'],
+      SP: scores['1']['SP'],
+    },
+  };
+
+  // Prepare the data for Player 2 to be sent to the backend
+  const roundDataPlayer2 = {
+    adminPlayerId: adminPlayerIds.adminPlayer2ObjectId, // Replace with the correct admin player ID for Player 2
+    gameNumber: 1, // Assuming currentRound represents the game number
+    roundNumber: currentRound - 1, // The completed round number
+    scores: {
+      HP: scores['2']['HP'],
+      BP: scores['2']['BP'],
+      TP: scores['2']['TP'],
+      RW: scores['2']['RW'],
+      RL: scores['2']['RL'], // You can add RL and KO if needed
+      KO: scores['2']['KO'],
+      SP: scores['2']['SP'],
+    },
+  };
+
+  // Make separate POST requests to your backend to store the round results for each player
+  try {
+    const responsePlayer1 = await fetch('https://lovely-mite-leg-warmers.cyclic.app/api/storeRoundResults', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(roundDataPlayer1),
+    });
+
+    if (responsePlayer1.status === 201) {
+      console.log('Player 1 round results stored successfully.');
     } else {
-      console.log(`Score element not found for key ${key} and player ${player}`);
+      console.error('Failed to store Player 1 round results.');
     }
+
+    const responsePlayer2 = await fetch('https://lovely-mite-leg-warmers.cyclic.app/api/storeRoundResults', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(roundDataPlayer2),
+    });
+
+    if (responsePlayer2.status === 201) {
+      console.log('Player 2 round results stored successfully.');
+    } else {
+      console.error('Failed to store Player 2 round results.');
     }
+  } catch (error) {
+    console.error('Error storing round results:', error);
   }
-
- function handleButtonClick(player, action) {
-  // Update scores based on the action
-  if (action === 'HP' || action === 'BP' || action === 'TP') {
-    scores[player][action]++;
-	 
-  } else if (action === 'RW') {
-    scores[player]['RW'] += 100;
-    scores['2']['RL'] += 25;
-  } else if (action === 'KO') {
-    scores[player]['KO'] += 500;
-	console.log('KO Button clicked');
-    scores['2']['SP'] += 25;
-  } else if (action === 'SP') {
-    scores[player]['SP'] += 25;
-  }
-
-  // Update the scores on the page
-  updateScores(player);
+  
+  alert(`Please click "Start round" button to play the next round`);
 }
-// Attach event listeners to all buttons
-const allButtons = document.querySelectorAll('.input-group button');
-allButtons.forEach(button => {
-  button.addEventListener('click', event => {
-    let player;
-    const commonContainer = event.target.closest('.common');
-    
-    if (commonContainer.classList.contains('first-box')) {
-      player = '1';
-    } else if (commonContainer.classList.contains('second-box')) {
-      player = '2';
-    }
 
-     const action = event.target.getAttribute('data-product');
-    console.log('Button clicked:', player, action); // Add this line for debugging
+}
+
+ 
+ 
+async function getAdminPlayerIds() {
+  try {
+    const firstObjectIdResponse = await fetch('https://lovely-mite-leg-warmers.cyclic.app/getFirstObjectId');
+    const lastObjectIdResponse = await fetch('https://lovely-mite-leg-warmers.cyclic.app/getLastObjectId');
     
+    if (firstObjectIdResponse.ok && lastObjectIdResponse.ok) {
+      const firstObjectIdData = await firstObjectIdResponse.json();
+      const lastObjectIdData = await lastObjectIdResponse.json();
+      
+      const adminPlayer1ObjectId = firstObjectIdData.firstObjectId;
+      const adminPlayer2ObjectId = lastObjectIdData.lastObjectId;
+
+      return { adminPlayer1ObjectId, adminPlayer2ObjectId };
+    } else {
+      console.error('Error fetching admin player IDs:', firstObjectIdResponse.status, lastObjectIdResponse.status);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching admin player IDs:', error);
+    return null;
+  }
+}
+
+  // Example usage:
+  const allButtons = document.querySelectorAll('.input-group button');
+  allButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      let player;
+      const commonContainer = event.target.closest('.common');
+      if (commonContainer.classList.contains('first-box')) {
+        player = '1';
+      } else if (commonContainer.classList.contains('second-box')) {
+        player = '2';
+      }
+      const action = event.target.getAttribute('data-product');
       handleButtonClick(player, action);
     });
-	});
- 
+  });
+const roundCount = document.getElementById("round-count");
+
+  // Start a new round with a 1-minute time limit
+  function startNewRound() {
+      resetScores(); // Set the end time for the round
+     roundEndTime = Date.now() + 20000;// 1 minute (60000 milliseconds)
+
+    // Log the start of the round
+    console.log(`Round ${currentRound} started. Time limit: 1 minute.`);
+     alert(`Round ${currentRound} started. Time limit: 20 seconds.`);
+    
+	roundCount.innerHTML = `Round ${currentRound}`;
+	// Increment the round number for the next round
+    currentRound++;
+ roundInProgress = true;
+
+
+    // You can add code here to reset scores or perform other actions at the start of a new round
+  }
+
+const startRound = document.getElementById("startRound");
+  startRound.addEventListener('click',startNewRound);
+  // Clear the scores and reset them to zero
+
+  
+});
 </script>
+
+
+
+
+
+
+
+
+<style>
+#currentWinnerColorContainer {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom:50px;
+}
+
+#currentWinnerColorContainer p {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+#currentWinnerColor {
+  font-weight: bold;
+  color:#ff5733;
+}
+</style>
+<div id="currentWinnerColorContainer">
+  <p>Current Winner: <span id="currentWinnerColor">Red</span></p>
+</div>
+
+
 
  <h6 style="font-size: 23px; font-weight: 600; color: #ccc; margin-bottom: 30px;">Predictions Submitted</h6>
 <div id="predictionDiv" class="predictions"></div>
@@ -606,47 +782,306 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 
+ <h1>Previous Round Results</h1>
+<style>
+  /* Basic styling for results */
+  #results {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width:100%;
+	max-width:1000px;
+	border:2px solid #ccc;
+	box-shadow:0 5px 10px rgba(0,0,0,0.2);
+	max-height:690px;
+	overflow:auto;
+  }
 
-<!--
-<br>
-<button id="readyBtn">Ready to Play</button>
-<script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+  .title {
+    font-size: 20px;
+    margin-top: 10px;
+	padding-bottom:10px;
+	border-bottom:2px solid blue;
+  }
+
+  .section-title {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .subsection-title {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .subsubsection-title {
+    font-size: 18px;
+    margin-top: 10px auto;
+	
+  }
+
+  .results-list {
+    list-style: none;
+    padding:10px auto;
+	
+  }
+
+  .result-item {
+    margin-bottom: 10px;
+  }
+
+  .bold {
+    font-weight: bold;
+	margin:10px auto;
+	padding-bottom:10px;
+  
+  }
+   .bold1 {
+    font-weight: bold;
+	margin:10px auto;
+  }
+  .results-wrap{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	width:400px;
+	
+  }
+  .bold11{
+	border-top:2px solid gray;
+	padding-top:10px;
+  }
+</style>
+
+<div id="results">
+  <div class="results-wrap">
+  <div class="title">Player 1 Scores</div>
+  <div class="results-container" id="adminPlayer1Results"></div>
+</div>
+
+
+ <div class="results-wrap">
+   <div class="title">Player 2 Scores</div>
+  <div class="results-container" id="adminPlayer2Results"></div>
+</div>
+</div>
+
 <script>
-const socket = io('https://backend-for-plans.onrender.com/');
+const resultsElement = document.getElementById('results');
+const adminPlayer1ResultsElement = document.getElementById('adminPlayer1Results');
+const adminPlayer2ResultsElement = document.getElementById('adminPlayer2Results');
 
-document.getElementById('readyBtn').addEventListener('click', () => {
-  socket.emit('ready');
-});
+const backendURL = 'https://lovely-mite-leg-warmers.cyclic.app/api/fetchRoundResults';
 
-socket.on('start', () => {
-  alert('Game started!');
-  // You can start the game UI or show a message here
-});
+async function fetchAndDisplayResults(adminPlayerId, resultsContainer) {
+  try {
+    const response = await fetch(`${backendURL}?adminPlayerId=${adminPlayerId}`);
 
-// Handle game updates from the server
-socket.on('update', (data) => {
-  alert('Game state updated:', data);
-  // Update the game UI based on the received data
-});
+    if (response.ok) {
+      const results = await response.json();
+      // Filter out _id fields from the results
+      const sanitizedResults = sanitizeResults(results);
+      
+      // Display the sanitized results in a more organized format
+      resultsContainer.innerHTML = `
+        <ul class="results-list">
+          ${sanitizedResults.games.map((game) => `
+            <li class="result-item">
+              <div class="bold">Game Number: <span style="color:red;">${game.gameNumber}</span></div> 
+              
+              <ul class="results-list">
+                ${game.rounds.map((round) => `
+                  <li class="result-item">
+                    <div class="bold1 bold11">Round Number: ${round.roundNumber}</div> 
+                    <div class="subsubsection-title">Scores:</div>
+                    <ul class="results-list">
+                      ${Object.keys(round.scores).map((scoreKey) => `
+                        <li class="result-item"><div class="bold1">${scoreKey}: ${round.scores[scoreKey]}</div> </li>
+                      `).join('')}
+                    </ul>
+                  </li>
+                `).join('')}
+              </ul>
+            </li>
+          `).join('')}
+        </ul>
+      `;
+    } else {
+      console.error('Failed to fetch round results:', response.status);
+      resultsContainer.innerHTML = 'Failed to fetch round results.';
+    }
+  } catch (error) {
+    console.error('Error fetching round results:', error);
+    resultsContainer.innerHTML = 'Error fetching round results.';
+  }
+}
 
-// Handle player leaving the game
-socket.on('playerLeft', (playerId) => {
-  alert('Player left:', playerId);
-  // Update the game UI or show a message
-});
+// Function to sanitize results and remove _id fields
+function sanitizeResults(results) {
+  return JSON.parse(JSON.stringify(results, (key, value) => {
+    if (key === '_id') {
+      return undefined; // Exclude _id fields
+    }
+    return value;
+  }));
+}
+
+
+
+async function getAdminPlayerIds() {
+  try {
+    const firstObjectIdResponse = await fetch('https://lovely-mite-leg-warmers.cyclic.app/getFirstObjectId');
+    const lastObjectIdResponse = await fetch('https://lovely-mite-leg-warmers.cyclic.app/getLastObjectId');
+    
+    if (firstObjectIdResponse.ok && lastObjectIdResponse.ok) {
+      const firstObjectIdData = await firstObjectIdResponse.json();
+      const lastObjectIdData = await lastObjectIdResponse.json();
+      
+      const adminPlayer1ObjectId = firstObjectIdData.firstObjectId;
+      const adminPlayer2ObjectId = lastObjectIdData.lastObjectId;
+
+      return { adminPlayer1ObjectId, adminPlayer2ObjectId };
+    } else {
+      console.error('Error fetching admin player IDs:', firstObjectIdResponse.status, lastObjectIdResponse.status);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching admin player IDs:', error);
+    return null;
+  }
+}
+
+
+// Call getAdminPlayerIds to retrieve both admin player IDs
+async function getAndDisplayAdminPlayers() {
+  const adminPlayerIds = await getAdminPlayerIds();
+
+  if (adminPlayerIds) {
+    // Call fetchAndDisplayResults for adminPlayer1ObjectId
+    fetchAndDisplayResults(adminPlayerIds.adminPlayer1ObjectId, adminPlayer1ResultsElement);
+
+    // Call fetchAndDisplayResults for adminPlayer2ObjectId
+    fetchAndDisplayResults(adminPlayerIds.adminPlayer2ObjectId, adminPlayer2ResultsElement);
+  } else {
+    console.error('Failed to retrieve admin player IDs.');
+  }
+}
+
+// Call getAndDisplayAdminPlayers to retrieve and display both admin player results
+getAndDisplayAdminPlayers();
+</script>
 
 
 
 
-socket.on('disconnect', (reason) => {
-  alert('WebSocket connection disconnected. Reason:', reason);
-});
 
-socket.on('error', (error) => {
-  alert('WebSocket error:', error);
+ <h1 class="leader-board-h1">Add winner to Leader Board</h1>
+  <p class="lastp">Inspect which person has predicted most accurate results.Based on that <br>fill the following fields and submit data. It will be reflected <br>on the leader Board</p>  
+    <form id="item-form" class="form">
+        <input type="text" id="name" class="input" placeholder="Name" required>
+        <input type="text" id="description" class="input" placeholder="Description" required>
+        <button type="submit" class="btn">Add to Leader Board</button>
+    </form>
+	
+	<style>
+	
+.form {
+    margin: 20px auto;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+	margin-bottom:200px;
+}
+
+.input {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.item-list {
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    
+	const itemForm = document.getElementById('item-form');
+    
+    itemForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const nameInput = document.getElementById('name');
+        const descriptionInput = document.getElementById('description');
+
+        const newItem = {
+            name: nameInput.value,
+            description: descriptionInput.value,
+        };
+
+        try {
+            const response = await fetch('https://lovely-mite-leg-warmers.cyclic.app/items', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newItem),
+            });
+
+            if (response.status === 201) {
+                nameInput.value = '';
+                descriptionInput.value = '';
+                alert("Response submitted");
+            } else {
+                console.error('Error creating item:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error creating item:', error);
+        }
+    });
 });
 </script>
--->
+
+
+
+<div class="general-guidelines">
+
+	<section class="list-intro">
+	</section>
+	<section class="awesome-list">
+		<div class="awesome-list-item"><span>When 1 round is completed , hit Start the round button to proceed to next round</span></div>
+		<div class="awesome-list-item"><span>In order to logout , you must hit user icon as well as name to completely logout.</span></div>
+		<div class="awesome-list-item"><span>Inspect which person has predicted most accurate results.Based on that fill winner form.<br> It will be reflected
+on the leader Board</span></div>
+		</section>
+
+</div>
 
 
  </body>
