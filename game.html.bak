@@ -1079,8 +1079,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		<div class="awesome-list-item"><span>In order to logout , you must hit user icon as well as name to completely logout.</span></div>
 		<div class="awesome-list-item"><span>Inspect which person has predicted most accurate results.Based on that fill winner form.<br> It will be reflected
 on the leader Board</span></div>
-		<div class="awesome-list-item"><span>Labore quibusdam voluptatibus nobis minima reprehen.</span></div>
-	</section>
+		</section>
 
 </div>
 
